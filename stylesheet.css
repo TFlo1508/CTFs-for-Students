@@ -1,148 +1,164 @@
+/*alles*/
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    font-family: "Gill Sans", sans-serif;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Gill Sans", sans-serif;
+
+  /* ACHTUNG NUR ZUR ÜBERPRÜFUNG
+  -- HILFT BEIM PROGRAMMIEREN
   
-  nav ol {
-    margin-right: 30px;
-    padding: 40px;
-    float: right;
-  }
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+  */
+
+}
+
+/*Menü oben links -außere Felder*/ 
+nav ol {
+  margin-left: 30px;
+  padding: 40px;
+  float: left;
   
-  nav ol li {
-    /*Damit Nebeneinander und nicht untereinander*/
-    display: inline-block;
-    line-height: 100px;
-    margin: 3px;
-  }
+}
+
+/*Menü oben links - Damit untereinander*/
+nav ol li {
+  line-height: 12px;
+  margin: 7px;
+  border: solid white 3px;
+  border-radius: 50px;
+  padding: 10px;
+  text-align: center; 
+}
+
+/*Menü oben links - Schrift*/
+nav ol li a {
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 50%;
+  padding: 10px;
   
-  nav ol li a {
-    color: white;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 50%;
-    padding: 10px;
-  }
+}
+
+/*Menü oben links - wenn man drüberfährt*/
+#B_Startseite:hover,
+#B_Übersicht:hover,
+#B_ÜberUns:hover {
+  background-color: #000000;
+  transition: 0.4s;
+}
+
+/*Menü oben links - Rand*/
+#B_Startseite,
+#B_Übersicht,
+#B_ÜberUns {
   
-  #B_Spiel:hover,
-  #B_Leistungen:hover,
-  #B_Galerie:hover,
-  #B_Team:hover,
-  #B_Kontakt:hover {
-    background-color: #232423;
-    transition: 0.4s;
-  }
   
-  #B_Spiel,
-  #B_Leistungen,
-  #B_Galerie,
-  #B_Team,
-  #B_Kontakt {
-    border: solid white 3px;
-    border-radius: 50px;
-  }
-  
-  nav {
-    background-color: transparent;
-    color: white;
-    height: 200px;
-    width: 100%;
-    font-size: 35px;
-    font-weight: 200;
-  }
-  
-  /*---------------------------------------------*/
-  h4 {
-    text-transform: uppercase;
-  }
-  
-  body {
-    background-color: #723434;
-  }
-  
-  .Registrieren {
-    width: 360px;
-    height: 500px;
-    margin: auto;
-    background-color: white;
-    border-radius: 3px;
-  }
-  
-  h1 {
-    text-align: center;
-    padding-top: 15px;
-  }
-  
-  h4 {
-    text-align: center;
-  }
-  
-  form input {
-    width: 100%;
-    padding: 7px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 6px;
-    outline: none;
-  }
-  
-  form {
-    width: 300px;
-    margin-left: 20px;
-  }
-  
-  form label {
-    display: flex;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  input[type="submit"] {
-    width: 320px;
-    height: 35px;
-    margin-top: 20px;
-    border: none;
-    background-color: #448a44;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  p {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 15px;
-  }
-  .Abfrage {
-    text-align: center;
-    color: white;
-    font-size: 15px;
-    margin-top: -10px;
-  }
-  
-  .Abfrage a {
-    color: #448a44;
-  }
-  
-  input[type="button"]:hover {
-    cursor: pointer;
-  }
-  
-  .Anmelden {
-    margin: auto;
-    border-radius: 3px;
-    background-color: white;
-    width: 360px;
-    height: 280px;
-  }
-  
-  header {
-    margin-bottom: 30px;
-    color: white;
-    font-size: 50px;
-    text-align: center;
-  }
-  
+}
+
+nav {
+  background-color: transparent;
+  color: white;
+  height: 200px;
+  width: 100%;
+  font-size: 35px;
+  font-weight: 200;
+}
+
+/*---------------------------------------------*/
+h4 {
+  text-transform: uppercase;
+  margin-right:13%;
+
+}
+
+body {
+  background-color: #1b2e41;
+}
+
+.Registrieren {
+  width: 360px;
+  height: 500px;
+  margin: auto;
+  background-color: white;
+  border-radius: 3px;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 15px;
+}
+
+h4 {
+  text-align: center;
+}
+
+form input {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
+}
+
+form {
+  width: 300px;
+  margin-left: 20px;
+}
+
+form label {
+  display: flex;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+input[type="submit"] {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: #00f7ff;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+p {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 15px;
+}
+.Abfrage {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  margin-top: -10px;
+}
+
+.Abfrage a {
+  color: #00f7ff;
+}
+
+input[type="button"]:hover {
+  cursor: pointer;
+}
+
+.Anmelden {
+  margin: auto;
+  border-radius: 3px;
+  background-color: white;
+  width: 360px;
+  height: 280px;
+}
+
+header {
+  margin-bottom: 30px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}

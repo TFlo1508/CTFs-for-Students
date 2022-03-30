@@ -1,0 +1,10 @@
+html-Seiten:
+	Homepage
+	Homepage (eingeloggt)
+	Übersicht
+	Übersicht (eingeloggt)
+	Rätselvorschau (x mal für x Rätsel)
+	Regiestrierung
+	Login
+	Über uns
+

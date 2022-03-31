@@ -1,0 +1,33 @@
+Elemente:
+    - Menü (drop-down)
+        - Homepage
+        - Übersicht
+        - Rätselseite
+        - Join
+        - Login
+    - join/login/logout Felder (oben rechts)
+        - Homepage
+        - Übersicht
+        - Rätselseite
+        - Join
+        - Login
+    - Rätselvorschau
+        - Rätselseite
+        - Übersicht
+    - "Slide-Show"
+        - Homepage
+    - Formular
+        - Regestrierung
+        - Login
+    - Flag-Bestätigung
+        - Rätselseite
+    - Avatar --> viel Aufwand
+        - Eingeloggt
+    - "Spielerstand-Balken"
+        - Avatar-Seite (eingeloggt)
+    - Rating (Sternchen)
+        - Rätselseite
+        - Rätselvorschau
+    - Kontaktformular
+        - Über uns
+    - "passed"-Element

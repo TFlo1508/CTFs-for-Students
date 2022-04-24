@@ -1,0 +1,23 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "Lum s webApp ",
+  "main": "index.js",
+  "//": "HIER muss ich jetzt noch angeben dass ich das EXPRESS Framework nutzen will, da package.json meinem Server alles mit kommuniziert",
+   "//":"npm install express (Terminal) installiert mir dann alle node module und alle dazu gehörigen Dependencies", 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ctf",
+    "webapp",
+    "backend"
+  ],
+  "author": "Lum",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3"
+   
+
+  }
+}

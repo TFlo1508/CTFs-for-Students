@@ -10,4 +10,4 @@ app.listen(3000, ()=>console.log("hört auf port 3000"));
 
 //Nutzer angegebenen Ordner wenn Client sich verbindet
 app.use(express.static("OrdnerFuerClients"))
-//
+

@@ -1,11 +1,11 @@
 Elemente:
-    - Menü (drop-down)
+    - Menü (drop-down) --> Sidal
         - Homepage
         - Übersicht
         - Rätselseite
         - Join
         - Login
-    - join/login/logout Felder (oben rechts)
+    - join/login/logout Felder (oben rechts) --> Sidal
         - Homepage
         - Übersicht
         - Rätselseite

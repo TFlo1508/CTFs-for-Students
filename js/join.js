@@ -7,8 +7,13 @@ let register = {
 }
 
 function registerCB(data, status){
-    alert("\nStatus: " + status);
-    // Fehlermeldung auswerten und Weiterleitung (window.location = "C:/Users/flori/CTFs-for-Students/html/login.html")
+    if (status == 'success') {
+        window.location = "C:/Users/flori/CTFs-for-Students/html/login.html";
+    } else {
+        console.log("Status: " + status);
+        alert ("Objekt konnte nicht erstellt werden");
+        regForm.reset();
+    }
 }
 
 function createUser(register) {
@@ -44,7 +49,7 @@ function init() {
         if (register.password == register.passwordWdh) {
             console.log("Passwörter stimmen überein!");
             let newUser = createUser(register);
-            window.location = "C:/Users/flori/CTFs-for-Students/html/login.html"
+            //window.location = "C:/Users/flori/CTFs-for-Students/html/login.html"
         } else {
             console.log("Passwörter stimmen nicht überein!");
             alert ("Bitte geben Sie zwei mal das gleiche Passwort ein!");

@@ -13,13 +13,15 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/login.css" />
+    
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
       integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
       crossorigin="anonymous"
     ></script>
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Registrieren | WBA 2</title>
   </head>
 
@@ -91,43 +93,39 @@
           <div class="col">
             <h1>Registrieren</h1>
             <hr />
-            <form>
+            <form id = "register">
               <div class="card ctf-login-card">
                 <div class="card-body">
                   <div class="form-floating mb-3">
-                    <input
+                    <input id="floatingInput"
                       type="email"
                       class="form-control ctf-login-textfield"
-                      id="floatingInput"
                       placeholder="name@example.com"
                       required
                     />
                     <label for="floatingInput">Email Adresse</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input
+                    <input id="floatingPassword"
                       type="password"
                       class="form-control ctf-login-textfield"
-                      id="floatingPassword"
                       placeholder="Password"
                       required
                     />
                     <label for="floatingPassword">Passwort</label>
                   </div>
                   <div class="form-floating">
-                    <input
+                    <input id="floatingPasswordWdh"
                       type="password"
                       class="form-control ctf-login-textfield"
-                      id="floatingPassword"
                       placeholder="Password"
                       required
                     />
-                    <label for="floatingPassword">Passwort bestätigen</label>
+                    <label for="floatingPasswordWdh">Passwort bestätigen</label>
                   </div>
-
                   <div class="my-3">
-                    <button type="submit" class="btn btn-outline-info">
-                      <a href="./profil.html">Registrieren</a>
+                    <button type="submit" class="btn btn-outline-info" id="joinBtn">
+                      <a>Registrieren</a>
                     </button>
                   </div>
                 </div>
@@ -137,7 +135,6 @@
         </div>
       </div>
     </main>
-
     <!-- Bootstrap Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -145,4 +142,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="C:\Users\flori\CTFs-for-Students\js\join.js"></script>
 </html>

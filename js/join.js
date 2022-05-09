@@ -8,7 +8,7 @@ let register = {
 
 function registerCB(data, status){
     if (status == 'success') {
-        window.location = "C:/Users/flori/CTFs-for-Students/html/login.html";
+        window.location = "../html/login.html";
     } else {
         console.log("Status: " + status);
         alert ("Objekt konnte nicht erstellt werden");

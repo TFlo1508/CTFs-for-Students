@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", init);
 
 let register = {
@@ -23,13 +24,10 @@ function createUser(register) {
     const User = JSON.stringify(register);
     console.log('Create User: '+User);
 
+    //Sendet Anfrage an Server post(Location, JSON-Object, Funktionpointer )
     $.post("http://localhost:8000/api/user",User,registerCB);
 
-    const request = {
-        method: "POST",
-        headers: headers,
-        body: User,
-    }
+
 }
 
 function init() {

@@ -9,7 +9,7 @@ let login = {
 //Funktion die mich auf die Rätselvorschauseite schickt 
 function loginCB(data, status){
     if (status == 'success') {
-        window.location = "../html/raetselvorschau_login.html";
+        //window.location = "../html/raetselvorschau_login.html";
     } else {
         console.log("Status: " + status);
         alert ("Objekt konnte nicht erstellt werden");
@@ -19,19 +19,12 @@ function loginCB(data, status){
 
 
 function loginUser(login) {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-
     const User = JSON.stringify(login);
     console.log('login: '+User);
 
     $.post("http://localhost:8000/api/user",User,loginCB);
 
-    const request = {
-        method: "POST",
-        headers: headers,
-        body: User,
-    }
+
 }
 
 function init() {

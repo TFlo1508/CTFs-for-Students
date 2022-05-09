@@ -6,7 +6,7 @@ let register = {
     password: "",
     passwordWdh: "",
 }
-
+//Funktion um location zu ändern
 function registerCB(data, status){
     if (status == 'success') {
         window.location = "../html/login.html";
@@ -18,13 +18,11 @@ function registerCB(data, status){
 }
 
 function createUser(register) {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-
     const User = JSON.stringify(register);
     console.log('Create User: '+User);
 
     //Sendet Anfrage an Server post(Location, JSON-Object, Funktionpointer )
+    //achtung: JSON OBJECT als String übergeben !! --> (SQL Server)
     $.post("http://localhost:8000/api/user",User,registerCB);
 
 
@@ -46,6 +44,7 @@ function init() {
 
         if (register.password == register.passwordWdh) {
             console.log("Passwörter stimmen überein!");
+            //
             let newUser = createUser(register);
             //window.location = "C:/Users/flori/CTFs-for-Students/html/login.html"
         } else {

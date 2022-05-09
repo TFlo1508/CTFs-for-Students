@@ -6,6 +6,7 @@ let login = {
     password: "",
 }
 
+//Funktion die mich auf die Rätselvorschauseite schickt 
 function loginCB(data, status){
     if (status == 'success') {
         window.location = "../html/raetselvorschau_login.html";
@@ -15,6 +16,7 @@ function loginCB(data, status){
         logForm.reset();
     }
 }
+
 
 function loginUser(login) {
     let headers = new Headers();

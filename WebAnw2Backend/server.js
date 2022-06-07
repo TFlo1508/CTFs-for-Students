@@ -29,8 +29,11 @@ try {
     
     // provide service router with database connection / store the database connection in global server environment
     app.locals.dbConnection = dbConnection;
+    
 
+    //Lum: __dirname gibt mir den absoluten Path in meinem Node Projekt
     console.log('Binding middleware...');
+
     app.use(express.static(__dirname + '/public'))
     app.use(fileUpload({
         createParentPath: true,

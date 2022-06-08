@@ -153,6 +153,8 @@ try {
     serviceRouter = require('./services/benutzer.js');
     app.use(TOPLEVELPATH, serviceRouter);
 
+
+    // VON FLO hinzugefügt ???
     serviceRouter = require('./services/user.js');
     app.use(TOPLEVELPATH, serviceRouter);
 

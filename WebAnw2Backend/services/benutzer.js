@@ -110,7 +110,6 @@ serviceRouter.post('/benutzer', function(request, response) {
     } else if (helper.isUndefined(request.body.benutzerrolle.id)) {
         errorMsgs.push('benutzerrolle gesetzt, aber id fehlt');
     }        
-    
     if (helper.isUndefined(request.body.person)) {
         request.body.person = null;
     } else if (helper.isUndefined(request.body.person.id)) {

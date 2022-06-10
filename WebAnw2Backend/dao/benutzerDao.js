@@ -81,6 +81,7 @@ class BenutzerDao {
         var result = statement.get(benutzername);
 
         if (result.cnt == 0) 
+            //Wenn noch kein Benutzer existiert 
             return true;
 
         return false;

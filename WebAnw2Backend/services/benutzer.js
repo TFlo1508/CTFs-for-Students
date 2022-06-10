@@ -47,11 +47,14 @@ serviceRouter.get('/benutzer/existiert/:id', function(request, response) {
     }
 });
 
-serviceRouter.get('/benutzer/eindeutig', function(request, response) {
+//Verändert mit Herr Kuti
+serviceRouter.get('/benutzer/eindeutig/:benutzername', function(request, response) {
     console.log('Service Benutzer: Client requested check, if username is unique');
+    //console.log(request.params.benutzername);
 
     var errorMsgs=[];
-    if (helper.isUndefined(request.body.benutzername)) 
+    //Checkt ob Benutzername
+    if (helper.isUndefined(request.params.benutzername)) 
         errorMsgs.push('benutzername fehlt');
 
     if (errorMsgs.length > 0) {
@@ -62,9 +65,10 @@ serviceRouter.get('/benutzer/eindeutig', function(request, response) {
 
     const benutzerDao = new BenutzerDao(request.app.locals.dbConnection);
     try {
-        var unique = benutzerDao.isunique(request.body.benutzername);
+        //request.params anstatt request.body weil URL Parameter und nicht JSON
+        var unique = benutzerDao.isunique(request.params.benutzername);
         console.log('Service Benutzer: Check if unique, unique=' + unique);
-        response.status(200).json({ 'benutzername': request.body.benutzername, 'eindeutig': unique });
+        response.status(200).json({ 'benutzername': request.params.benutzername, 'eindeutig': unique });
     } catch (ex) {
         console.error('Service Benutzer: Error checking if unique. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });

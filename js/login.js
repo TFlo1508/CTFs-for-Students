@@ -21,7 +21,6 @@ function loginCB(data, status){
 function loginUser(login) {
     const User = JSON.stringify(login);
     console.log('login: '+User);
-
     $.post("http://localhost:8000/api/user",User,loginCB);
 
 

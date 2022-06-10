@@ -1,17 +1,18 @@
 //Führe init() aus wenn Dokument geladen
 document.addEventListener("DOMContentLoaded", init);
 
-//Register Key:Val array
+//Register Objekt
 let register = {
     email: "",
     password: "",
     passwordWdh: "",
 }
+
 //Funktion um Ansicht zu ändern
-function registerCB(data, status){
+async function registerCB(data, status){
     if (status == 'success') {
-        //Wenn erfolgreich registriert leite nach login seite weiter
-        window.location = "../html/login.html";
+        //nach Registrierung --> Login Seite
+        //window.location = "../html/login.html";
     } else {
         console.log("Status: " + status);
         alert ("Objekt konnte nicht erstellt werden");
@@ -19,15 +20,19 @@ function registerCB(data, status){
     }
 }
 
+
+
+
 function createUser(register) {
     const User = JSON.stringify(register);
     console.log('Create User: '+User);
 
     //Sendet Anfrage an Server mit Post-Request post(Location, JSON-Object, Funktionpointer )
     //achtung: JSON OBJECT als String übergeben !! --> (SQL Server)
-    $.post("http://localhost:8000/api/user",User,registerCB);
 
-
+    //$.post("http://localhost:8000/api/user",User,registerCB);
+    $.post("http://localhost:8000/api/benutzer",User,registerCB);
+ 
 }
 
 function init() {
@@ -47,7 +52,6 @@ function init() {
 
         if (register.password == register.passwordWdh) {
             console.log("Passwörter stimmen überein!");
-            //
             let newUser = createUser(register);
             //window.location = "C:/Users/flori/CTFs-for-Students/html/login.html"
         } else {

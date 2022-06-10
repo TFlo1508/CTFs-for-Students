@@ -1,5 +1,3 @@
-
-
 //---------------------------
 //
 //
@@ -21,15 +19,6 @@ let register = {
 	}
 }
 
-let existiert = {}
-
-//Funktion um Ansicht zu ändern
-function registerCB(data, status){
-    window.location = "../html/login.html";
-}
-
-
-
 
 function createUser(register) {
     const User = JSON.stringify(register);
@@ -44,7 +33,8 @@ function createUser(register) {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function(){
-            registerCB();
+            //Wechsle Ansicht
+            window.location = "../html/login.html";
         }
     });
  

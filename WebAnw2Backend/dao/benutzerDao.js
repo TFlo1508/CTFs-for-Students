@@ -64,10 +64,10 @@ class BenutzerDao {
         return result;
     }
 
-    exists(id) {
-        var sql = 'SELECT COUNT(id) AS cnt FROM Benutzer WHERE id=?';
-        var statement = this._conn.prepare(sql);
-        var result = statement.get(id);
+    exists(benutzername) {
+        var sql = 'SELECT COUNT(id) AS cnt FROM Benutzer WHERE benutzername=?';
+        var statement = this._conn.prepare(sql); 
+        var result = statement.get(benutzername);
 
         if (result.cnt == 1) 
             return true;
@@ -95,6 +95,9 @@ class BenutzerDao {
         var statement = this._conn.prepare(sql);
         var params = [benutzername, md5(passwort)];
         var result = statement.get(params);
+        console.log("statement",statement);
+        console.log("params",params);
+        console.log("result",result);
 
         if (helper.isUndefined(result)) 
             throw new Error('User has no access');

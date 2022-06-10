@@ -33,14 +33,16 @@ serviceRouter.get('/benutzer/alle', function(request, response) {
     }
 });
 
-serviceRouter.get('/benutzer/existiert/:id', function(request, response) {
-    console.log('Service Benutzer: Client requested check, if record exists, id=' + request.params.id);
+
+//Abgeändert: Schaut ob Benutzername existiert
+serviceRouter.get('/benutzer/existiert/:benutzername', function(request, response) {
+    console.log('Service Benutzer: Client requested check, if record exists, benutzername=' + request.params.benutzername);
 
     const benutzerDao = new BenutzerDao(request.app.locals.dbConnection);
     try {
-        var exists = benutzerDao.exists(request.params.id);
-        console.log('Service Benutzer: Check if record exists by id=' + request.params.id + ', exists=' + exists);
-        response.status(200).json({ 'id': request.params.id, 'existiert': exists });
+        var exists = benutzerDao.exists(request.params.benutzername);
+        console.log('Service Benutzer: Check if record exists by id=' + request.params.benutzername + ', exists=' + exists);
+        response.status(200).json({ 'id': request.params.benutzername, 'existiert': exists });
     } catch (ex) {
         console.error('Service Benutzer: Error checking if record exists. Exception occured: ' + ex.message);
         response.status(400).json({ 'fehler': true, 'nachricht': ex.message });
@@ -75,7 +77,8 @@ serviceRouter.get('/benutzer/eindeutig/:benutzername', function(request, respons
     }
 });
 
-serviceRouter.get('/benutzer/zugang', function(request, response) {
+//Verändert get --> post
+serviceRouter.post('/benutzer/zugang', function(request, response) {
     console.log('Service Benutzer: Client requested check, if user has access');
 
     var errorMsgs=[];

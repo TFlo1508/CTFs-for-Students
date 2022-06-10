@@ -1,6 +1,6 @@
 //---------------------------
-//
-//
+//existiert User?
+//Lege User an und leite weiter nach login
 //~Lum
 //-------------------------
 
@@ -14,7 +14,7 @@ let register = {
     benutzername: "",
     passwort: "",
     benutzerrolle: {
-		id: "1",
+		id: "2",
 		bezeichnung: "normal"
 	}
 }
@@ -44,15 +44,15 @@ function init() {
     console.log("Page ready!");
     let regForm = document.getElementById("register");
     let email = document.getElementById("floatingInput");
-    let pwd = document.getElementById("floatingPassword")
+    let pwd = document.getElementById("floatingPassword");
     let pwdWdh = document.getElementById("floatingPasswordWdh");
 
     //Wenn submit Button geklickt wird 
     regForm.addEventListener("submit", (clickevent) => {
         clickevent.preventDefault();
         register.benutzername = email.value;
-        register.passwort = pwd.value;
-
+        register.passwort = pwd.value; 
+ 
         //stimmen Passwörter überein
         if (register.passwort === pwdWdh.value) {
             console.log("Passwörter stimmen überein!");

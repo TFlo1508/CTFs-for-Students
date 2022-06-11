@@ -9,7 +9,7 @@ class ForumsbereichDao {
     }
 
     getConnection() {
-        return this._conn;
+        return this._conn; 
     }
 
     loadById(id) {

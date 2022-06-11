@@ -40,7 +40,7 @@ function loginUser(login) {
         success: function(response) {
             //Wenn admin
             if (response.benutzerrolle.bezeichnung === "admin")
-                window.location = "../html/raetselvorschau_loesung.html";
+                window.location = "../html/raetsel_admin.html";
             //Wenn normal
             else {
                 window.location = "../html/raetselvorschau_login.html";

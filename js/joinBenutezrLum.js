@@ -10,11 +10,11 @@ document.addEventListener("DOMContentLoaded", init);
 
 //Register Objekt mit voreingestellten Values
 let register = {
-    id: "1",
+    id: "1", //Wert ist egal, weil immer hochinkrementiert
     benutzername: "",
     passwort: "",
     benutzerrolle: {
-		id: "2",
+		id: "2", //normal, admin wäre 1 
 		bezeichnung: "normal"
 	}
 }
@@ -65,6 +65,8 @@ function init() {
                 success: function(response) {
                     console.log("Ergebnis",response);
                     //Falls Benutzer nicht existiert
+                    
+                    
                     if (response.eindeutig) {
                         createUser(register);
                     }
@@ -72,6 +74,7 @@ function init() {
                         //Wenn Benutzer existiert
                         alert("Benutzer existiert bereits");
                     }
+                    
                 } 
             });
             

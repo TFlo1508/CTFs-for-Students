@@ -71,6 +71,7 @@ function init() {
             success: function(response) {
                 console.log("Ergebnis",response);
                 //Wenn Benutzer vorhanden
+                //Wenn PAsswort falsch --> alert()
                 if (response.existiert) {
                     loginUser(login);
                 }

@@ -1,5 +1,5 @@
 const helper = require('../helper.js');
-const LandDao = require('./landDao.js');
+const LandDao = require('./ctfDao.js');
 
 class AdresseDao {
 

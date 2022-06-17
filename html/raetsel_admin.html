@@ -18,6 +18,8 @@
             integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
             crossorigin="anonymous"
         ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
         <title>CTF Admin</title>
     </head>
@@ -73,7 +75,7 @@
                         >
                             Frage hinzufügen
                         </a>
-                        <table class="table table-dark table-bordered my-4">
+                        <table class="table table-dark table-bordered my-4" id="ctfTabelle">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -97,7 +99,7 @@
                                         >
                                             <span class="fas fa-edit"></span>
                                         </a>
-                                        <button
+                                        <button 
                                             type="button"
                                             class="btn btn-sm btn-outline-danger"
                                             data-bs-toggle="tooltip"
@@ -122,4 +124,5 @@
             crossorigin="anonymous"
         ></script>
     </body>
+    <script src="../js/admin.js"></script>
 </html>

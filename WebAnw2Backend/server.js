@@ -56,11 +56,10 @@ try {
     const TOPLEVELPATH = '/api';
     console.log('Binding enpoints, top level Path at ' + TOPLEVELPATH);
     
-    let serviceRouter = require('./services/land.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    
 
-    serviceRouter = require('./services/adresse.js');
-    app.use(TOPLEVELPATH, serviceRouter);
+    //serviceRouter = require('./services/adresse.js');
+    //app.use(TOPLEVELPATH, serviceRouter);
 
     serviceRouter = require('./services/person.js');
     app.use(TOPLEVELPATH, serviceRouter);
@@ -80,6 +79,8 @@ try {
 
     serviceRouter = require('./services/termin.js');
     app.use(TOPLEVELPATH, serviceRouter);
+
+    
 
     
     
@@ -156,6 +157,10 @@ try {
 
     // VON FLO hinzugefügt ???
     serviceRouter = require('./services/user.js');
+    app.use(TOPLEVELPATH, serviceRouter);
+    
+    //Von Lum
+    serviceRouter = require('./services/ctf.js');
     app.use(TOPLEVELPATH, serviceRouter);
 
 

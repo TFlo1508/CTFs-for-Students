@@ -36,7 +36,7 @@ function displayCTF(ctfJSON) {
     
     //edit und delete Felder
     var edit = '<td> <a href="raetsel_admin_edit.html" class="btn btn-sm btn-outline-info mx-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Datensatz bearbeiten" > <span class="fas fa-edit"></span> </a>';                              
-    var del =  '<button onclick="deleteCtf('+ctfJSON.id+')" type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Datensatz löschen"> <span class="fas fa-trash"></span> </button> </td>';
+    var del =  '<button onclick="deleteCtf('+ctfJSON.id+')" type="button" class="btn btn-sm btn-outline-danger position-fixed" data-bs-toggle="tooltip" data-bs-placement="top" title="Datensatz löschen"> <span class="fas fa-trash"></span> </button> </td>';
                         
     var interaktion =  row.insertCell();
     interaktion.innerHTML = edit + del;

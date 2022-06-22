@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./server.js",
-    "start": "node ./server.js"
+    "start": "node ./server.js && node ./Startseite.js"
   },
   "author": "Robert Kuti",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "luxon": "^1.28.0",
     "md5": "^2.3.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "words-to-numbers": "^1.5.1"
   }
 }

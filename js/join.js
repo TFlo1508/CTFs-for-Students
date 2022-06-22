@@ -43,6 +43,7 @@ function createUser(register) {
 function init() {
     console.log("Page ready!");
     let regForm = document.getElementById("register");
+    
     let email = document.getElementById("floatingInput");
     let pwd = document.getElementById("floatingPassword");
     let pwdWdh = document.getElementById("floatingPasswordWdh");

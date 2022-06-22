@@ -8,7 +8,6 @@
 
 //Führe init() aus wenn Dokument geladen
 document.addEventListener("DOMContentLoaded", init);
-
 let ctf = {
     //id wird automatisch hochinkrementiert
     frage:"",
@@ -20,7 +19,7 @@ let ctf = {
 var html_1 =  `<div class="col">
   <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item ctf-background-light">
-  <h2 class="accordion-header" id="panelsStayOpen-heading` //Zahl 
+  <h2 class="accordion-header" id="panelsStayOpen-heading` //Zahl
 
 var html_2 =  `"> <button 
         class="accordion-button bg-dark text-light"
@@ -32,19 +31,17 @@ var html_3 = `" aria-expanded="true"
         aria-controls="panelsStayOpen-collapse` //Zahl
      
 var html_lvl = '">Level ';
-var html_4 =`</button>
-    </h2>
-    <div
-      id="panelsStayOpen-collapse`//Zahl
+var html_4 =`</button></h2> <div id="panelsStayOpen-collapse`//Zahl
    
-var html_5 = `" class="accordion-collapse collapse show"
-      aria-labelledby="panelsStayOpen-heading` //Zahl
+var html_5 = `" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading` //Zahl
     
 var html_6 =`"><div class="accordion-body">`
 var frage ="";
         
-var html_7 = `<hr />
-        <form class="row g-4">
+//kein Refresh nach Button click
+var html_7 = `<hr /> <form class="row g-4 ansForm" onsubmit="return false" id="`
+        
+var html_8 = `">
           <div class="col-4">
             <label for="tfAntwort" class="visually-hidden"
               >Antwort</label
@@ -52,22 +49,37 @@ var html_7 = `<hr />
             <input
               type="text"
               class="form-control"
-              id="tfAntwort"
-              placeholder="Antwort"
+              id="` //ctfId
+
+var html_9 =  `" placeholder="Antwort"
               required
             />
           </div>
           <div class="col-auto">
-            <a
-              href="./raetselvorschau_loesung.html"
-              class="btn btn-outline-info mb-3"
-              >Antwort überprüfen</a
-            >
-          </div>
-        </form>
+                <button onclick="displayAnswer(this)" id="` //ctfId
+                 
+                
+var html_10 = `" type="submit" class="btn btn-outline-info mb-3">
+                    Antwort überprüfen
+               </button>
+          </div>` // richtig/falsch Button (onclick())
+         
+ var html_11 =`</form>
       </div>
     </div>
   </div>`;
+
+//Raetsel richti/falsch eingegeben
+var richtig = `<div class="col-auto">
+<span
+  class="far fa-check-circle fa-2x text-success"
+></span>
+</div>`
+
+var falsch =  `<button type="submit" class="btn btn-outline-danger mb-3">
+Erneut überprüfen
+</button>`
+
 
 //one --> One oder two --> Two 
 function capitalizeFirstLetter(string) {
@@ -114,15 +126,14 @@ function capitalizeFirstLetter(string) {
   }
 
 var count=1;
-function displayCTF(frage) {
-    //Level hochinkrementieren
+function displayCTF(frage,ctfId) {
+    //unterschiedlich: Level, bestimmte Attribute (Heading<One,Two,...>), id 
     html_all =html_1+capitalizeFirstLetter(wordify(count))+html_2+capitalizeFirstLetter(wordify(count))+html_3+capitalizeFirstLetter(wordify(count))+
-    html_lvl+count+html_4+capitalizeFirstLetter(wordify(count))+html_5+capitalizeFirstLetter(wordify(count))+html_6+frage+html_7;   
+    html_lvl+count+html_4+capitalizeFirstLetter(wordify(count))+html_5+capitalizeFirstLetter(wordify(count))+html_6+frage+html_7+html_8+ctfId+html_9+ctfID+html_10+html_11;   
 
     var raetsel = document.getElementsByClassName("col")[0];
     raetsel.innerHTML += html_all;
     count++;
-    
   }
 
 async function getCTFs() {
@@ -135,26 +146,57 @@ async function getCTFs() {
             //gehe durch alle JSONs in Liste
             for(ctf of response) {
                 //schreibe jede Frage in HTML 
-                displayCTF(ctf.frage);
+                displayCTF(ctf.frage, ctf.id);
             }
         } 
     });
 }
 
-async function deleteCtf(ctfId) {
-    await $.ajax ({
-        //Sende benutzername über URL
-        url: "http://localhost:8000/api/ctf/"+ctfId,
-        type: "DELETE",
-        success: function(response) {
-            console.log("Rätsel mit Id ="+ctfId+" gelöscht");
-            window.location = "../html/raetsel_admin.html";
-        } 
-    });
+
+var count_2=0;
+function displayAnswer(btn) {
+  //Bei click wird Button übergeben
+  //Danach soll geguckt werden ob Antwort feld passt
+  //--> form.div[0].input  --> das input Feld variiert
+  //Je nach dem soll dann das richitge Feld angezeigt werden --> richtig/falsch
+  //id des geklickten Btns 
+
+  //antwort aus AntwortForm
+  let ansForm = document.getElementsByClassName("ansForm");
+  console.log(ansForm);
+  let antwort = ansForm[count_2].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
+  let loesung = ansForm[count_2].getElementsByTagName("div")[1];
+  
+  count_2++;
+  if (antwort==="blau") {
+     loesung.innerHTML = richtig; 
+  } 
+  else {
+     loesung.innerHTML = falsch; 
+  }
+  
+  console.log(antwort);
+
+
+
+  /*//Wenn submit Button geklickt wird 
+  answerForm.addEventListener("submit", (clickevent) => {
+      clickevent.preventDefault();});
+
+  btn = document.getElementById(btn);
+  
+
+
+  console.log(btn.textContent);
+  alert("hey")*/
+
 }
 
+
 async function init() {
-    console.log("Page ready!"); 
+    console.log("Page ready!");
     //Mache Rätsel sichtbar
     await getCTFs();
+
+
 }

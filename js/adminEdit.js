@@ -44,7 +44,7 @@ function showCTFs() {
     });
 }
 
-function init() {
+async function init() {
     console.log("Page ready!");
 
     let ctfForm = document.getElementById("ctf");
@@ -57,8 +57,8 @@ function init() {
         ctf.antwort = antwort.value; 
 
         //Sende an Frage + Antwort an Server
-        sendCTF().then(window.location = "../html/raetsel_admin.html");
-
+        sendCTF(); //.then(window.location = "../html/raetsel_admin.html");
+        alert("räetsel erstellt");
         //Knopf funktioniert nicht
 
         //Gehe wieder zurück

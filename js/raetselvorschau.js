@@ -129,7 +129,7 @@ var count=1;
 function displayCTF(frage,ctfId) {
     //unterschiedlich: Level, bestimmte Attribute (Heading<One,Two,...>), id 
     html_all =html_1+capitalizeFirstLetter(wordify(count))+html_2+capitalizeFirstLetter(wordify(count))+html_3+capitalizeFirstLetter(wordify(count))+
-    html_lvl+count+html_4+capitalizeFirstLetter(wordify(count))+html_5+capitalizeFirstLetter(wordify(count))+html_6+frage+html_7+html_8+ctfId+html_9+ctfID+html_10+html_11;   
+    html_lvl+count+html_4+capitalizeFirstLetter(wordify(count))+html_5+capitalizeFirstLetter(wordify(count))+html_6+frage+html_7+html_8+ctfId+html_9+ctfId+html_10+html_11;   
 
     var raetsel = document.getElementsByClassName("col")[0];
     raetsel.innerHTML += html_all;

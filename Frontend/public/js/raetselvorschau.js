@@ -86,6 +86,7 @@ async function getCTFs() {
     });
 }
 
+//Funktion um Antwort zu überprüfen
 function displayAnswer(btn) {
   //Antwort von Button 
   let answer="";
@@ -116,6 +117,7 @@ function displayAnswer(btn) {
 }
 
 
+//Funktion wird aufegrufen nachdem falsche Eingabe eingegeben wird
 function secondTry(btn) {
   //Antwort von Button 
   let answer="";
@@ -142,8 +144,15 @@ function secondTry(btn) {
   }
 }
 
+
+
+
+
 async function init() {
     console.log("Page ready!");
     //Mache Rätsel sichtbar
     await getCTFs();
+
+
+
 }

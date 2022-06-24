@@ -5,8 +5,8 @@ const app = express();
 const port = process.env.PORT || 4500;
 
 app.use(express.static(__dirname + '/public'));
-// sendFile will go here
 
+//alle Seiten
 app.get('/index.html', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/html/index.html'));
 });

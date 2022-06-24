@@ -18,7 +18,7 @@ let ctf = {
 //Raetsel richti/falsch eingegeben
 var richtig = `<div class="col-auto"> <span class="far fa-check-circle fa-2x text-success" ></span></div>`
 
-var falsch =  `<button type="submit" class="btn btn-outline-danger mb-3">Erneut überprüfen </button>`
+var falsch =  `<button type="submit" onclick="secondTry(this)" class="btn btn-outline-danger mb-3">Erneut überprüfen </button>`
 
 
 //one --> One oder two --> Two 
@@ -30,12 +30,13 @@ function capitalizeFirstLetter(string) {
 function displayCTF(ctf){
     displayRawCTF(ctf.id);
     rawCTF = document.getElementsByClassName("accordion-item");
-    CTFElement = rawCTF[rawCTF.length-1];
+    let CTFElement = rawCTF[rawCTF.length-1];
     let CTFElementHTML = CTFElement.children[1].children[0].innerHTML 
     CTFElement.children[1].children[0].innerHTML = ctf.frage + CTFElementHTML;  //  accordion-body
   };
 
 
+//Funktion um ein Level Feld anzuzeigen
 let levelCount = 1
 function displayRawCTF(ctfId) {
     var raetselSammler = document.getElementsByClassName("col")[0];
@@ -48,13 +49,13 @@ function displayRawCTF(ctfId) {
     <div id="panelsStayOpen-collapse'+ctfId+'" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading'+ctfId+'">\
       <div class="accordion-body">\
         <hr>\
-        <form class="row g-4 ansForm" onsubmit="return false">\
+        <form class="row g-4 ansForm" onsubmit="return false" id="'+ctfId+'">\
           <div class="col-4">\
             <label for="tfAntwort'+ctfId+'" class="visually-hidden">Antwort</label>\
             <input type="text" class="form-control" data-id="'+ctfId+'" id="tfAntwort'+ctfId+'" placeholder="Antwort" required="">\
               </div>\
               <div class="col-auto">\
-                <button onclick="displayAnswer(this)" data-id="'+ctfId+'" type="submit" class="btn btn-outline-info mb-3">\
+                <button onclick="displayAnswer(this)" id="'+ctfId+'" type="submit" class="btn btn-outline-info mb-3">\
                   Antwort überprüfen\
                 </button>\
               </div>\
@@ -84,51 +85,51 @@ async function getCTFs() {
 }
 
 
-var count_2=0;
 function displayAnswer(btn) {
-  //Bei click wird Button übergeben
-  //Danach soll geguckt werden ob Antwort feld passt
-  //--> form.div[0].input  --> das input Feld variiert
-  //Je nach dem soll dann das richitge Feld angezeigt werden --> richtig/falsch
-  //id des geklickten Btns 
+  //alle Antwort Forms 
+  let ansForms = document.getElementsByClassName("ansForm");
 
-  //antwort aus AntwortForm
-  let ansForm = document.getElementsByClassName("ansForm");
-  console.log(ansForm);
-  let antwortArray = document.querySelector("input[data-id="+btn.data-id+"]");
-  console.log(antwortArray);
-  let loesung = ansForm[count_2].getElementsByTagName("div")[1];
-  
-  count_2++;
-  if (antwort==="blau") {
-     loesung.innerHTML = richtig; 
-  } 
-  else {
-     loesung.innerHTML = falsch; 
+  //für jeden Button
+  for (let i=0;i< ansForms.length;i++) {
+
+    if (btn.id==ansForms[i].id) {
+      let eingabe = ansForms[i].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
+      console.log("eingabe ",eingabe);
+      console.log("btn.id ",btn.id);
+
+      let loesung = ansForms[i].getElementsByTagName("div")[1];
+      if (eingabe==="blau") {
+         loesung.innerHTML = richtig;} 
+      else {
+         falsch =  '<button type="submit" onclick="secondTry(this)" id="'+btn.id+'" class="btn btn-outline-danger mb-3">Erneut überprüfen </button>';
+         loesung.innerHTML = falsch;
+        }
+    }
   }
-  
-  console.log(antwort);
-
-
-
-  /*//Wenn submit Button geklickt wird 
-  answerForm.addEventListener("submit", (clickevent) => {
-      clickevent.preventDefault();});
-
-  btn = document.getElementById(btn);
-  
-
-
-  console.log(btn.textContent);
-  alert("hey")*/
-
 }
 
+
+function secondTry(btn) {
+  //alle Antwort Forms 
+  let ansForms = document.getElementsByClassName("ansForm");
+  
+  //für jeden Button
+  console.log("btn.id "+btn.id);
+  for (let i=0;i< ansForms.length;i++) {
+    if (btn.id==ansForms[i].id) {
+      let eingabe = ansForms[i].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
+      let loesung = ansForms[i].getElementsByTagName("div")[1];
+      if (eingabe==="blau") {
+         loesung.innerHTML = richtig;} 
+      else {
+         loesung.innerHTML = falsch;
+      }
+    }
+  }
+}
 
 async function init() {
     console.log("Page ready!");
     //Mache Rätsel sichtbar
     await getCTFs();
-
-
 }

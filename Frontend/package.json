@@ -1,0 +1,27 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./client.js",
+    "dev": "nodemon ./client.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.4.0",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "luxon": "^2.4.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.18",
+    "better-sqlite3": "^5.4.3",
+    "body-parser": "^1.20.0",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "words-to-numbers": "^1.5.1"
+  
+  }
+}

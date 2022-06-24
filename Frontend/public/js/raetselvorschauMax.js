@@ -68,6 +68,7 @@ function displayRawCTF(ctfId) {
     levelCount++;
 }
 
+let ctfArray=[];
 async function getCTFs() {
     await $.ajax ({
         //Sende benutzername über URL
@@ -79,26 +80,32 @@ async function getCTFs() {
             for(ctf of response) {
                 //schreibe jede Frage in HTML 
                 displayCTF(ctf);
+                ctfArray.push(ctf);
             }
         } 
     });
 }
 
-
 function displayAnswer(btn) {
-  //alle Antwort Forms 
-  let ansForms = document.getElementsByClassName("ansForm");
+  //Antwort von Button 
+  let answer="";
+  for (let i=0;i< ctfArray.length;i++) {
+     if (btn.id==ctfArray[i].id) {
+       answer =ctfArray[i].antwort;}
+  }
+
+  //alle Eingabe Forms 
+  let inputForms = document.getElementsByClassName("ansForm");
 
   //für jeden Button
-  for (let i=0;i< ansForms.length;i++) {
+  for (let i=0;i< inputForms.length;i++) {
 
-    if (btn.id==ansForms[i].id) {
-      let eingabe = ansForms[i].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
-      console.log("eingabe ",eingabe);
-      console.log("btn.id ",btn.id);
+    if (btn.id==inputForms[i].id) {
+      //Wenn  id von button gleich der Antwortfeld id entspricht:
+      let eingabe = inputForms[i].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
 
-      let loesung = ansForms[i].getElementsByTagName("div")[1];
-      if (eingabe==="blau") {
+      let loesung = inputForms[i].getElementsByTagName("div")[1];
+      if (eingabe===answer) {
          loesung.innerHTML = richtig;} 
       else {
          falsch =  '<button type="submit" onclick="secondTry(this)" id="'+btn.id+'" class="btn btn-outline-danger mb-3">Erneut überprüfen </button>';
@@ -110,16 +117,23 @@ function displayAnswer(btn) {
 
 
 function secondTry(btn) {
+  //Antwort von Button 
+  let answer="";
+  for (let i=0;i< ctfArray.length;i++) {
+     if (btn.id==ctfArray[i].id) {
+       answer =ctfArray[i].antwort;}
+  }
+  
   //alle Antwort Forms 
-  let ansForms = document.getElementsByClassName("ansForm");
+  let inputForms = document.getElementsByClassName("ansForm");
   
   //für jeden Button
   console.log("btn.id "+btn.id);
-  for (let i=0;i< ansForms.length;i++) {
-    if (btn.id==ansForms[i].id) {
-      let eingabe = ansForms[i].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
-      let loesung = ansForms[i].getElementsByTagName("div")[1];
-      if (eingabe==="blau") {
+  for (let i=0;i< inputForms.length;i++) {
+    if (btn.id==inputForms[i].id) {
+      let eingabe = inputForms[i].getElementsByTagName("div")[0].getElementsByTagName("input")[0].value;
+      let loesung = inputForms[i].getElementsByTagName("div")[1];
+      if (eingabe===answer) {
          loesung.innerHTML = richtig;} 
       else {
          loesung.innerHTML = falsch;

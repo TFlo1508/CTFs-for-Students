@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 //Register Objekt mit voreingestellten Values
 let register = {
-    id: "1", //Wert ist egal, weil immer hochinkrementiert
+    id: "1", //Wert ist egal, weil immer hochinkrementiert 
     benutzername: "",
     passwort: "",
     benutzerrolle: {

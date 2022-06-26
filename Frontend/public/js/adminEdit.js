@@ -27,6 +27,7 @@ async function sendCTF() {
             console.log("Ergebnis",response);
         } 
     });
+    window.location = "../html/raetsel_admin.html";
 }
 
 function showCTFs() {
@@ -57,7 +58,7 @@ async function init() {
         ctf.antwort = antwort.value; 
 
         //Sende an Frage + Antwort an Server
-        sendCTF(); //.then(window.location = "../html/raetsel_admin.html");
+        sendCTF(); 
         alert("räetsel erstellt");
         //Knopf funktioniert nicht
 

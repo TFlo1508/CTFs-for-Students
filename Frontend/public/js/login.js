@@ -15,17 +15,6 @@ let login = {
     passwort: "",
 }
 
-//Funktion die mich auf die Rätselvorschauseite schickt 
-function loginCB(data, status){
-    if (status == 'success') {
-        //window.location = "../html/profil.html";
-    } else {
-        console.log("Status: " + status);
-        alert ("Objekt konnte nicht erstellt werden");
-        logForm.reset();
-    }
-}
-
 //Funktion die Passwort von User abgleicht
 function loginUser(login) {
     console.log("Versuche einzuloggen");

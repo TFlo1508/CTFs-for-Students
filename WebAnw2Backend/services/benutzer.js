@@ -80,7 +80,7 @@ serviceRouter.get('/benutzer/eindeutig/:benutzername', function(request, respons
 //Verändert get --> post
 serviceRouter.post('/benutzer/zugang', function(request, response) {
     console.log('Service Benutzer: Client requested check, if user has access');
-
+ 
     var errorMsgs=[];
     if (helper.isUndefined(request.body.benutzername)) 
         errorMsgs.push('benutzername fehlt');

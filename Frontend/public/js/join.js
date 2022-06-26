@@ -1,7 +1,7 @@
 //---------------------------
 //existiert User? - Wenn nicht
 //Lege User an und leite weiter nach login
-//~Lum
+//~Flo
 //-------------------------
 
 
@@ -52,7 +52,7 @@ function init() {
     regForm.addEventListener("submit", (clickevent) => {
         clickevent.preventDefault();
         register.benutzername = email.value;
-        register.passwort = pwd.value; 
+        register.passwort = pwd.value;
  
         //stimmen Passwörter überein
         if (register.passwort === pwdWdh.value) {
@@ -66,8 +66,6 @@ function init() {
                 success: function(response) {
                     console.log("Ergebnis",response);
                     //Falls Benutzer nicht existiert
-                    
-                    
                     if (response.eindeutig) {
                         createUser(register);
                     }

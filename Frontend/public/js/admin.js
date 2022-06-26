@@ -2,7 +2,7 @@
 //CTF's mit GET Request laden
 //diese dann in die Tabelle 
 //per js einfügen 
-//~Lum
+//~Max
 //-------------------------
 
 

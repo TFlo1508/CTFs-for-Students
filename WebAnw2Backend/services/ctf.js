@@ -49,7 +49,7 @@ serviceRouter.get('/ctf/existiert/:id', function(request, response) {
     }
 });
 
-//bearbeitet von Lum
+//bearbeitet
 serviceRouter.post('/ctf', function(request, response) {
     console.log('Service CTF: Client requested creation of new record');
 

@@ -27,6 +27,9 @@ function loginUser(login) {
         contentType: "application/json",
         data: JSON.stringify(login),
         success: function(response) {
+            //wenn Pw falsch
+           
+
             //Wenn admin
             if (response.benutzerrolle.bezeichnung === "admin")
                 window.location = "../html/raetsel_admin.html";
@@ -34,11 +37,15 @@ function loginUser(login) {
             else {
                 window.location = "../html/raetselvorschau_login.html";
             }
-        } 
-    });
+        },
+        error: function (response){
+            alert("Versuche es mit BruteForce");
+            
+        
+         }  
 
+    })};
 
-}
 
 function init() {
     console.log("Page ready!");
